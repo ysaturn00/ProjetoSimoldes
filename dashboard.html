@@ -14,14 +14,14 @@
     <img src="images/logo-simoldes.png" alt="Simoldes" class="logo" />
     <nav>
       <ul>
-        <li><a href="#">Moldes em processo</a></li>
-        <li><a href="#">Chegada de aços</a></li>
-        <li><a href="#">Programação</a></li>
-      </ul>
+          <li><a href="moldes.html">Moldes em processo</a></li>
+          <li><a href="acos.html">Chegada de aços</a></li>
+          <li><a href="programacao.html">Programação</a></li>
+          <li><a href="#" id="btnNovosDados">Novos Dados</a></li>
+        </ul>
     </nav>
   </div>
 
-  <!-- Main layout -->
   <div class="main-container">
     <!-- Topbar -->
     <div class="topbar">
@@ -84,7 +84,7 @@
                 </tr>
               </thead>
               <tbody>
-                <!-- 300 linhas vazias -->
+                
                 <tr><td></td></tr>
                 <tr><td></td></tr>
                 <tr><td></td></tr>
@@ -126,7 +126,6 @@
                 <tr><td></td></tr>
                 <tr><td></td></tr>
                 
-                <!-- Repita a linha acima 299 vezes -->
               </tbody>
             </table>
           </div>
@@ -135,6 +134,44 @@
       </div>
     </div>
   </div>
+
+<!-- Modal -->
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <span id="closeModal" class="close-button">&times;</span>
+    <h2>Modal</h2>
+    <form class="modal-form">
+      <!-- Linha com Molde e Referência -->
+      <div class="input-row">
+        <input type="text" placeholder="Molde" required />
+        <input type="text" placeholder="Referência" required />
+      </div>
+
+      <!-- Campo de Status -->
+      <div class="status-wrapper">
+        <span class="status-label">Programa NC</span>
+        <input type="text" placeholder="Referência" class="status-input" />
+        <label class="status-checkbox">
+          <input type="checkbox" name="programa_nc" />
+          <span class="custom-checkmark"></span>
+        </label>
+      </div>
+      
+
+      <!-- Campo de Observação -->
+      <div class="form-right">
+        <textarea placeholder="Observação" required></textarea>
+      </div>
+
+      <!-- Botão de Enviar -->
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
 
 </body>
 </html>
