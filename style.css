@@ -363,50 +363,47 @@ font-weight: 1000;
 font-family: 'Nunito', sans-serif;
 }
 /* Garante que o container da tabela fique dentro do card */
-.tabela-container {
-height: 100%;               /* Ocupa todo o espaço do body */
-max-height: 360px;          /* Limite para rolagem interna — ajuste conforme o seu layout */
-overflow: auto;
-border: 1px solid #ccc;
-border-radius: 8px;
-padding: 8px;
-margin: 10px;
-background-color: #fff;     /* Fundo branco para contraste com as divisórias */
+.tabela-container { 
+  max-height: 360px;          /* Limite para rolagem interna */
+  overflow: auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #fff;     /* Fundo branco */
+  min-height: 70vh;
 }
 
 /* Tabela estilo padrão */
 table {
-width: 100%;
-border-collapse: collapse;
-min-width: 1000px;          /* Para manter alinhamento com 12 colunas */
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px;
 }
 
 /* Células e divisórias */
 th, td {
-border: 1px solid #999;     /* Divisórias mais visíveis */
-padding: 8px;
-font-size: 14px;
-text-align: left;
+  border: 1px solid #999;
+  padding: 8px;
+  font-size: 14px;
+  text-align: left;
 }
 
-/* Cabeçalhos fixos com fundo verde escuro */
-th {
-background-color: #2f5949;
-color: white;
-position: sticky;
-top: 0;
-z-index: 1;
+td.molde, td.ref {
+
+}
+/* Cabeçalhos fixos */
+thead th {
+  background-color: #2f5949;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 2;  /* Aumenta para garantir sobreposição */
 }
 
-/* Alternância de linhas para melhor leitura */
+/* Alternância de linhas */
 tr:nth-child(even) {
-background-color: #f5f5f5;
-}
-
-/* Scroll horizontal (caso as colunas ultrapassem o limite) */
-.tabela-container {
-overflow-x: auto;
-overflow-y: auto;
+  background-color: #f5f5f5;
 }
 
 /* Modal base */
