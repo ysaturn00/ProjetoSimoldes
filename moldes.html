@@ -1,0 +1,65 @@
+<div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('images/login.png'); background-size: cover; background-position: center; display: flex; justify-content: center; align-items: center;">
+    <div style="font-family: Arial, sans-serif; width: 650px; padding: 30px; background-color: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: 2px solid #2f5949;">
+      <h1 style="color: #2f5949; font-size: 24px; margin-bottom: 30px; text-align: center; border-bottom: 2px solid #2f5949; padding-bottom: 15px;">Moldes em processo</h1>
+      
+      <div style="margin-bottom: 30px;">
+        <div style="font-weight: bold; color: #2f5949; padding: 12px 0; border-bottom: 2px solid #e0e0e0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleSteelOptions()">
+          <span>Molde: <span id="selectedSteel" style="font-weight: normal; color: #555;">Nenhum selecionado</span></span>
+          <span style="transition: transform 0.3s;">▼</span>
+        </div>
+        <div id="steelOptions" style="display: none; margin-top: 10px; border: 1px solid #e0e0e0; border-radius: 5px;">
+          <div style="padding: 12px; border-bottom: 1px solid #e0e0e0; cursor: pointer; transition: all 0.3s;" 
+               onmouseover="this.style.backgroundColor='#f5f5f5'; this.style.color='#2f5949'" 
+               onmouseout="this.style.backgroundColor='white'; this.style.color='inherit'" 
+               onclick="selectSteel('1678')">Aço 1678</div>
+          <div style="padding: 12px; cursor: pointer; transition: all 0.3s;" 
+               onmouseover="this.style.backgroundColor='#f5f5f5'; this.style.color='#2f5949'" 
+               onmouseout="this.style.backgroundColor='white'; this.style.color='inherit'" 
+               onclick="selectSteel('1679')">Aço 1679</div>
+        </div>
+      </div>
+      
+      <button onclick="redirectToDashboard()" 
+              style="background-color: #2f5949; color: white; border: none; padding: 14px; text-align: center; width: 100%; font-size: 16px; cursor: pointer; border-radius: 5px; transition: all 0.3s; font-weight: bold;"
+              onmouseover="this.style.backgroundColor='#3a6b5a'; this.style.transform='scale(1.02)'"
+              onmouseout="this.style.backgroundColor='#2f5949'; this.style.transform='scale(1)'">
+        SUBMIT
+      </button>
+    </div>
+  </div>
+  
+  <script>
+    let selectedSteel = null;
+  
+    function toggleSteelOptions() {
+      const steelOptions = document.getElementById('steelOptions');
+      const arrow = document.querySelector('div[onclick="toggleSteelOptions()"] span:last-child');
+      
+      if (steelOptions.style.display === 'none') {
+        steelOptions.style.display = 'block';
+        arrow.style.transform = 'rotate(180deg)';
+      } else {
+        steelOptions.style.display = 'none';
+        arrow.style.transform = 'rotate(0deg)';
+      }
+    }
+  
+    function selectSteel(steelType) {
+      selectedSteel = steelType;
+      const selectedElement = document.getElementById('selectedSteel');
+      selectedElement.textContent = steelType;
+      selectedElement.style.color = '#2f5949';
+      selectedElement.style.fontWeight = 'bold';
+      document.getElementById('steelOptions').style.display = 'none';
+      document.querySelector('div[onclick="toggleSteelOptions()"] span:last-child').style.transform = 'rotate(0deg)';
+    }
+  
+    function redirectToDashboard() {
+      if (selectedSteel) {
+        // Adicione aqui qualquer lógica para salvar a seleção
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Por favor, selecione um aço antes de continuar.');
+      }
+    }
+  </script>

@@ -31,6 +31,15 @@
             </form>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita o envio padrão do formulário
+            
+            // Aqui você pode adicionar validação do login se necessário
+            // Por enquanto, vamos apenas redirecionar para moldes.html
+            
+            window.location.href = 'moldes.html';
+        });
+    </script>
 </body>
 </html>
